@@ -1,186 +1,721 @@
 <!DOCTYPE html>
-<html>
-<title>Rali se uchi na JS</title>
-<style>
-</style>
-<body>
-<h1> 2D TRADITIONAL ANIMATION </h1>
-<iframe src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21116&authkey=ADKZ__zP3RICZWY" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
-<p> Movie 2</p>
-<iframe src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21110&authkey=AMtxsld0XqAAfKE" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
-<p> Movie 3</p>
-<iframe src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21113&authkey=ADvHA7IzghJD-4A" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
-<p> Movie 4</p>
-<iframe src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21111&authkey=ADJgvPIQUZsClnk" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
-<p> Movie 5</p>
-<iframe src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21119&authkey=AKdYT42JllujS4k" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
-<p> Movie 6 - dropbox</p>
-<!--
-<iframe src="https://dl.dropbox.com/s/x1tpj74gx2gjnsp/WALK02.avi" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
-<p> Movie 7 - dropbox</p>
-<iframe src="https://dl.dropbox.com/s/svwkp65ihkyu8n3/BAND01.avi" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
--->
+<!-- ==============================
+    Project:        Metronic "Aitonepage" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
+    Version:        1.0
+    Author:         KeenThemes
+    Primary use:    Corporate, Business Themes.
+    Email:          support@keenthemes.com
+    Follow:         http://www.twitter.com/keenthemes
+    Like:           http://www.facebook.com/keenthemes
+    Website:        http://www.keenthemes.com
+    Premium:        Premium Metronic Admin Theme: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+================================== -->
+<html lang="en" class="no-js">
+    <!-- BEGIN HEAD -->
+    <head>
+        <meta charset="utf-8"/>
+        <title>Rali Online Portfolio</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport"/>
+        <meta content="2D 3D Illustrations" name="description"/>
+        <meta content="Rali" name="author"/>
+
+        <!-- GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
+        <link href="vendor/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- PAGE LEVEL PLUGIN STYLES -->
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="vendor/swiper/css/swiper.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- THEME STYLES -->
+        <link href="css/layout.min.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="favicon.ico"/>
+
+    </head>
+    <!-- END HEAD -->
+
+    <!-- BODY -->
+    <body id="body" data-spy="scroll" data-target=".header">
+
+        <!--========== HEADER ==========-->
+        <header class="header navbar-fixed-top">
+            <!-- Navbar -->
+            <nav class="navbar" role="navigation">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="menu-container js_nav-item">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="toggle-icon"></span>
+                        </button>
+
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a class="logo-wrap" href="#body">
+                                <img class="logo-img logo-img-main" src="img/logo.png" alt="Asentus Logo">
+                                <img class="logo-img logo-img-active" src="img/logo-dark.png" alt="Asentus Logo">
+                            </a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse nav-collapse">
+                        <div class="menu-container">
+                            <ul class="nav navbar-nav navbar-nav-right">
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Home</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#2D">2D</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#3D">3D</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#illustrations">Illustrations</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#backgrounds">Backgrounds</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#service">About me</a></li>
+                                <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Contacts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Navbar Collapse -->
+                </div>
+            </nav>
+            <!-- Navbar -->
+        </header>
+        <!--========== END HEADER ==========-->
+
+        <!--========== SLIDER ==========-->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="container">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                </ol>
+            </div>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img class="img-responsive" src="https://dl.dropbox.com/s/1e2074434lb8r0k/attempt_04a.jpg" alt="Slider Image">
+                    <div class="container">
+                        <div class="carousel-centered">
+                            <div class="margin-b-40">
+                                <h1 class="carousel-title">2D Annimation and Illustrations</h1>
+                                <p class="color-white">Classic 2D annimation <br/> Illustrations and Backgrounds</p>
+                            </div>
+                            <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="https://dl.dropbox.com/s/q6778l92t5k5s6k/low_poly_journey_by_callmegav-d9pw4w7.png" alt="Slider Image">
+                    <div class="container">
+                        <div class="carousel-centered">
+                            <div class="margin-b-40">
+                                <h2 class="carousel-title">3D Design and Annimation</h2>
+                                <p class="color-white">3D annimation <br/> Shading and Rendering</p>
+                            </div>
+                            <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--========== SLIDER ==========-->
+
+        <!--========== PAGE LAYOUT ==========-->
+        <!-- 2D -->
+        <div id="2D">
+            <div class="content-lg container">
+                <!-- 2D TA -->
+                <div class="masonry-grid row">
+                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <h2>2D TRADITIONAL ANIMATION</h2>
+                        </div>
+                        <div class="margin-b-60">
+                            <p>2D movie 1</p>
+                        </div>
+                        <iframe class="full-width img-responsive wow fadeInUp" src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21116&authkey=ADKZ__zP3RICZWY" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image" data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <p>2D movie 2</p>
+                        </div>
+                        <iframe class="full-width img-responsive wow fadeInUp" src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21110&authkey=AMtxsld0XqAAfKE" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image"></iframe>
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>2D movie 3</p>
+                        </div>
+                        <iframe class="full-width img-responsive wow fadeInUp" src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21113&authkey=ADvHA7IzghJD-4A" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <p>2D movie 4</p>
+                        </div>
+                        <iframe class="full-width img-responsive wow fadeInUp" src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21111&authkey=ADJgvPIQUZsClnk" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <p>2D movie 4</p>
+                        </div>
+                        <iframe class="full-width img-responsive wow fadeInUp" src="https://onedrive.live.com/embed?cid=41EC20AAEC60D3CF&resid=41EC20AAEC60D3CF%21119&authkey=AKdYT42JllujS4k" width="320" height="240" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- End 2D TA -->
+            </div>
+            
+            <div class="bg-color-sky-light">
+                <div class="content-lg container">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 md-margin-b-60">
+                            <div class="margin-t-50 margin-b-30">
+                                <h2>Flash Annimations</h2>
+                                <p>I have a rich experience in creation of flash and 2d annimation.</p>
+                            </div>
+                            <a href="#" class="btn-theme btn-theme-sm btn-white-bg text-uppercase">Explore</a>
+                        </div>
+                        <div class="col-md-5 col-sm-7 col-md-offset-2">
+                            <!-- Accordion -->
+                            <div class="accordion">
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a class="panel-title-child" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Red
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                Red Allien
+                                            </div>
+                                            <object width="960" height="540">
+                                                <param name="movie" value="kur">
+                                                <embed class="img-responsive" src="https://dl.dropbox.com/s/wtk3z9s0tn2w5a6/001.swf" width="960" height="540">
+                                                </embed>
+                                            </object>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed panel-title-child" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                    Yellow
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                Yellow Alien
+                                            </div>
+                                            <object width="960" height="540">
+                                                <param name="movie" value="kur">
+                                                <embed class="img-responsive" src="https://dl.dropbox.com/s/gd0493tv2cg9j3i/003.swf" width="960" height="540">
+                                                </embed>
+                                            </object>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed panel-title-child" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                    Blue
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                Blue Allien
+                                            </div>
+                                            <object width="960" height="540">
+                                                <param name="movie" value="kur">
+                                                <embed class="img-responsive" src="https://dl.dropbox.com/s/ha0xf6p8hvqr6jx/006.swf" width="960" height="540">
+                                                </embed>
+                                            </object>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Accodrion -->
+                        </div>
+                    </div>
+                    <!--// end row -->
+                </div>
+            </div>
+        </div>
+        <!-- End 2D -->
+
+        <!-- Latest Products -->
+        <div id="3D">
+            <div class="content-lg container">
+                <div class="row margin-b-40">
+                    <div class="col-sm-6">
+                        <h2>3D</h2>
+                        <p>Here you can find some of my latest 3D projects</p>
+                    </div>
+                </div>
+                <!--// end title row -->
+
+                <div class="row">
+                    <!-- 3D Images -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <img class="img-responsive" src="https://fyerrq.bn1302.livefilestore.com/y4mtOqtTHmYjlFOF0sXq8vv9XRqNPobXIuIs18qYRvl8E--yFTZ4z_OhUoYcgf3n8LRjUPN_rsaWmlEmHiM5fl_kz-Rb5aEarAofhcDiKNJ4FAoqWaOj38YktgNL0n4_p7R2SSyh7QbqINaQshMUB-L-3GqY-4iwRX3fjQ1L7JQ1_kMEPFQ6fogqJiMXTPs0Y_ARNlizOGxPmrBJZZeBvpXBw?width=640&height=480&cropmode=none" alt="Cowboy en Fasse">
+                        </div>
+                        <h4><a href="#">Images</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Modeling, texturing, shading.</p>
+                        <!-- <a class="link" href="#">More images</a> -->
+                    </div>
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <img class="img-responsive" src="https://q06bsa.bn1302.livefilestore.com/y4mj2cU1WESMbf7rgBSagdlO-ynxMss6fp0vOYdFZwrviIDw-mrw0AvSQZcYRlMqmpLwrApa-g70B2B6bwU5lrRhq3r0at4Z5xV-NZdbhAQTL1MEsj1YqRK_9jYvwv6wMVuIj2I6vhR8tj4BuNWHj0Hh9Kzb5m2IHisLkU20d4jdXk5SwTlKaKwhg2paO9-1mOR4ckUTst8tt2JNUstGU4q9g?width=640&height=480&cropmode=none" alt="Cowboy en Fasse">
+                        </div>
+                        <h4><a href="#">Images</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Modeling, texturing, shading.</p>
+                        <!-- <a class="link" href="#">More images</a> -->
+                    </div>
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <img class="img-responsive" src="https://pafqsa.bn1302.livefilestore.com/y4mzfkhDCYzi0jcfcNX3z9BfGB6WztdNWoIC-SluJDrJ4-WbNIL1QJUunUy3bqQS26oSjHywdC6IJRg6G8Z53N41Al3mvgOq2cEkxXo6duPs5eBuL9GP6f_DjDxu8jJphEFfGiK49llr4bTMvkH9_xizde7fGOPCjN8vJZiWeLmTwryrvaAgE0ghK087oWPo1jFSfu6dVN2sq60jweTTtV_jA?width=1920&height=1080&cropmode=none" alt="Cowboy en Fasse">
+                        </div>
+                        <h4><a href="#">Images</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Modeling, texturing, shading.</p>
+                        <!-- <a class="link" href="#">More images</a> -->
+                    </div>
+                    <!-- End 3D Images -->
+                </div>
+                <!--// end row 1 -->
+                <div class="row">
+                    <!-- 3D annimation row 2 col 1 -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="Jump">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/7yj07kblnrl642h/jump.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Annimation, basic body posing and movement</p>
+                        <!-- <a class="link" href="#">More Stuff</a> -->
+                    </div>
+                    <!-- End 3D annimation row 2 col 1 -->
+                    
+                    <!-- 3D annimation row 2 col 2 -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="Alfie">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/4r282xp4gcft0rh/Alfie.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Annimation, basic body posing and movement</p>
+                        <!-- <a class="link" href="#">More Stuff</a> -->
+                    </div>
+                    <!-- End 3D annimation row 2 col 2 -->
+                    
+                    <!-- 3D annimation row 2 col 3 -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="fish">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/iavcfzt6hqczlub/fish.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation,Rigging,Texturing</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Non biped animation</p>
+                        <!-- <a class="link" href="#">Read More</a> -->
+                    </div>
+                    <!-- End 3D annimation row 2 col 3 -->
+                </div>
+                <!--// end row 2 -->
+                
+                <div class="row">
+                    <!-- more 3D annimation 3.1. -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="Kofa">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/jr5qzkcpfnxl013/kofa.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Annimation, basic body posing and movement</p>
+                        <!-- <a class="link" href="#">Read More</a> -->
+                    </div>
+                    <!-- End of more 3D annimation 3.1. -->
+                    
+                    <!-- more 3D annimation 3.2. -->
+                     <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="Run">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/63hwv18pfgn9pa5/run.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Annimation, basic body posing and movement</p>
+                        <!-- <a class="link" href="#">More Stuff</a> -->
+                    </div>
+                   
+                    <!-- more 3D annimation 3.3. -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="kur">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/6ifim5qa3duis8q/standup.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Annimation, basic body posing and movement</p>
+                        <!-- <a class="link" href="#">More Stuff</a> -->
+                    </div>
+                    
+                    <!-- more 3D annimation 3.4. -->
+                    <div class="col-sm-4 sm-margin-b-50">
+                        <div class="margin-b-20">
+                            <object width="8" height="10">
+                                <param name="movie" value="kur">
+                                <embed class="img-responsive" src="https://dl.dropbox.com/s/iiwedu36q5smlbg/fallingDth.swf" width="400" height="500">
+                                </embed>
+                            </object>
+                        </div>
+                        <h4><a href="#">Animation,Rigging,Texturing</a> <span class="text-uppercase margin-l-20">3D</span></h4>
+                        <p>Rigging, basic body set up</p>
+                        <!-- <a class="link" href="#">More Stuff</a> -->
+                    </div>
+                    <!-- End more 3D annimation 3.4. -->
+                </div>
+                <!--// end row 3 -->
+            </div>
+            <!-- End Content lg container -->
+        </div>
+        <!-- End Latest Products -->
+
+        <!-- Illustrations -->
+        <div id="illustrations">
+            <div class="content-lg container">
+                <!-- 2D TA -->
+                <div class="masonry-grid row">
+                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <h2>Illustrations</h2>
+                        </div>
+                        <div class="margin-b-60">
+                            <p>Illustration 1</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/wusa1p6y906pmhb/family01.png" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 01" data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <p>Illustration 2</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/r319x0ngqwjo5ys/03S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 02"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 3</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/w6nyrbvvtecnzzb/05S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 03"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 4</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/y2dw9efbhh4bp67/08S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 04"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 5</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/7elvjsqmxecl65f/09S.jpg"  width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 05"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 6</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/ewwcrpglnvxex51/10S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 06"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 7</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/8dd5r9tzh07v3bj/11S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 07"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 8</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/cjasu0m17v7qy5y/12S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 08"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 9</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/0wm8c7rsv4vo6xo/13S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 09"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                    
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Illustration 10</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/4vjndhi4y1q6qwv/02S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 09"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                    
+                </div>
+                <!-- End 2D TA -->
+            </div>
+        </div>
+        <!-- End Illustrations -->
 
 
-<h2> 3D - swf</h2>
-<h3> direct object - html5 style </h3>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="fallingDth.swf" width="960" height="540">
-    </embed>
-</object>
-<BR>
-<h3> flash player turk-gibi </h3>
- <embed type="application/x-shockwave-flash" src="player.swf" width="480" id="f" name="f" height="270" flashvars="skin=skins/mySkin.swf&thumbnail=thumbnail.jpg&video=fallingdth.swf" allowScriptAccess="always" allowfullscreen="true" bgcolor="#000000"/>
-                        <noembed>
-                            You need Adobe Flash Player to watch this video. <br> 
-                            <a href="http://get.adobe.com/flashplayer/">Download it from Adobe.</a>
-                            <a href="http://gokercebeci.com/dev/f4player" title="flv player">flv player</a>
-                        </noembed>
-<BR/>
- 
- <h3> 3D IMAGES </h3>
+        <!-- Backgrounds -->
+        <div id="backgrounds">
+            <div class="content-lg container">
+                <!-- 2D TA -->
+                <div class="masonry-grid row">
+                    <div class="masonry-grid-sizer col-xs-6 col-sm-6 col-md-1"></div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-b-60">
+                            <h2>Backgrounds</h2>
+                        </div>
+                        <div class="margin-b-60">
+                            <p>Background 1</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/f7ez0g1ed5ltxu5/01S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 01" data-wow-duration=".3" data-wow-delay=".2s"></img>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Background 2</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/4uzc2kwkeyv3n03/06S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 06"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Background 3</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/39gh5zp5yz7ma3v/07S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 07"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
+                    <div class="masonry-grid-item col-xs-12 col-sm-6 col-md-4">
+                        <div class="margin-t-60 margin-b-60">
+                            <p>Background 4</p>
+                        </div>
+                        <img class="full-width img-responsive wow fadeInUp" src="https://dl.dropbox.com/s/fj7cboo0zyklhql/04S.jpg" width="480" height="270" frameborder="0" scrolling="no" allowfullscreen alt="Portfolio Image 10"data-wow-duration=".3" data-wow-delay=".2s"></iframe>
+                        
+                    </div>
 
-<p>Image 1</p>
-<img src="https://fyerrq.bn1302.livefilestore.com/y4mtOqtTHmYjlFOF0sXq8vv9XRqNPobXIuIs18qYRvl8E--yFTZ4z_OhUoYcgf3n8LRjUPN_rsaWmlEmHiM5fl_kz-Rb5aEarAofhcDiKNJ4FAoqWaOj38YktgNL0n4_p7R2SSyh7QbqINaQshMUB-L-3GqY-4iwRX3fjQ1L7JQ1_kMEPFQ6fogqJiMXTPs0Y_ARNlizOGxPmrBJZZeBvpXBw?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 2</p>
-<img src="https://fygq0a.bn1302.livefilestore.com/y4m0dezhlTo7BlSgqDYfI5gn1-SLn2NbRS9s7rW1w5VMhpq5HBVH-YVa5acbdLJeFztOIHL0YOdh5iWqTU8C-txElcu408xHz78FxJvjXVpPJ0RRrXIeYgZACySQoCqs8u6VUvAOblAxsidxteTx9h5fdFnSZq5ze7aqmbEU0eYxZGYcLqAADdlUiZwlv5SGHK5f2Pd4hEOqGWole-zdRs6NA?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 3</p>
-<img src="https://enq9va.bn1302.livefilestore.com/y4m6yOED0EzgEWdJV9Wc1JDKAr8m-YPq3wOSCYpbn0BSYtlxUJwFUZPLPoGV7SIHUH_F30t2SMy-mKtAB1k0DopOMMfaaFu-BcfH7xktyxVhp9NUJORQ9g-mmOecX7bGiZIJFazbI3t4tXZWL03gTtCPNsAYR95t3n5XOYYXTA_D6VPlrlvLKp-36_qRMyTV0R_NenlpaCvBmEE8Zy8jfGu0w?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 4</p>
-<img src="https://enrzpq.bn1302.livefilestore.com/y4mKZ7-zDCfs6z1AG_bZmYQWJMaktdWQq93VLi2aOTKckUQA1QpTSpW7ZYZls0q0SJALx9SbqJbTPZTg_7zA6fckJ4G375NOZEqJaYxIraBE6JViZEAAO6wdv4KVMaCHETZ1kJhQrAClRc03cr77DLQtp5um3ceVoZDld-PnbCh4QpHYT9o3ZERJsgmCuxiXpt8BU65fu8Mw-Z2D-91QRakcw?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 5</p>
-<img src="https://enpymq.bn1302.livefilestore.com/y4md6OyL-mAGjZJ5X70HMrck2U_qTFA51uZ2koBHV7EDrHWOu4_1jsmEjO7nOrmH8jvKr3TpJBGtVSJk9sj2gw-fUjDk0U7_fFgSX4jTRic60DGln67kubLlztWhHY9foz3U6Rwcu02lmluxx9WXZAYAmtSxD81GwP36VmVYbtV_zNcohD9RS6kPy5r-8AXBcICL43mY8aKx3NSMQS0bEV5Fg?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 6</p>
-<img src="https://enpr6g.bn1302.livefilestore.com/y4me5gTS5ZB4p5kdxVGGvFRCZkWsWvnBcVqA3WecWexZz0xxD6DC3Y0O7JoEuvwYNzWlPORBO0lZj3gJctKHy-CHVpdnoKDub46DwrNr0trsuaMABG8x1B4s4Ri56nvdHGxpFAd56SvYAJXe4l8YHTNnvYylKoLBHNakCNbm6cIojy780im0jNtDqkpr1cfBdVbpYvnAKt3XdZ5-APORzjBAw?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 6</p>
-<img src="https://enpr6g.bn1302.livefilestore.com/y4me5gTS5ZB4p5kdxVGGvFRCZkWsWvnBcVqA3WecWexZz0xxD6DC3Y0O7JoEuvwYNzWlPORBO0lZj3gJctKHy-CHVpdnoKDub46DwrNr0trsuaMABG8x1B4s4Ri56nvdHGxpFAd56SvYAJXe4l8YHTNnvYylKoLBHNakCNbm6cIojy780im0jNtDqkpr1cfBdVbpYvnAKt3XdZ5-APORzjBAw?width=640&height=480&cropmode=none" width="320" height="240"></img>
-<p>Image 7</p>
-<img src="https://dl.dropbox.com/s/1fevk7popokkkfb/dk_front.jpg"width="320" height="240"></img>
+                    
+                    <!--// end row -->
 
+                    <!-- Masonry Grid -->
 
-<h4> OLD3D </h4>
-<object width="4" height="5">
-    <param name="movie" value="kur">
-    <embed src="fallingDth.swf" width="400" height="500">
-    </embed>
-</object>
-<BR>
-<object width="100" height="100">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/iavcfzt6hqczlub/fish.swf" width="150" height="150">
-    </embed>
-</object>
-<BR>
-<object width="100" height="100">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/7yj07kblnrl642h/jump.swf" width="400" height="600">
-    </embed>
-</object>
-<BR>
-<object width="100" height="100">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/ljek6ybn6larzw3/face.swf" width="400" height="600">
-    </embed>
-</object>
-<BR>
-<object width="100" height="100">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/jr5qzkcpfnxl013/kofa.swf" width="400" height="600">
-    </embed>
-</object>
-<BR>
-<object width="100" height="100">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/63hwv18pfgn9pa5/run.swf" width="400" height="600">
-    </embed>
-</object>
-<BR>
-<object width="100" height="100">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/6ifim5qa3duis8q/standup.swf" width="400" height="600">
-    </embed>
-</object>
-<BR>
+                </div>
+            </div>
+            
+            <!-- Clients -->
+            <div class="content-lg container">
+                <!-- Swiper Clients -->
+                <div class="swiper-slider swiper-clients">
+                    <!-- Swiper Wrapper -->
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="swiper-clients-img" src="img/sw/maya.jpg" alt="Maya">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-clients-img" src="img/sw/max.jpg" alt="3dsmax">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-clients-img" src="img/sw/flash.jpg" alt="flash">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-clients-img" src="img/sw/zombium.png" alt="zombium">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-clients-img" src="img/clients/va.png" alt="Venelin">
+                        </div>
+                        <div class="swiper-slide">
+                            <img class="swiper-clients-img" src="img/clients/06.png" alt="Clients Logo">
+                        </div>
+                    </div>
+                    <!-- End Swiper Wrapper -->
+                </div>
+                <!-- End Swiper Clients -->
+            </div>
+            <!-- End Clients -->
+        </div>
+        <!-- End Backgrounds -->
 
-<embed src="https://dl.dropbox.com/s/daym94cuaszlh96/alfred.swf" type="application/x-shockwave-flash" title="Sleepy man" width="550" height="400"></embed>
+        <!-- About ME -->
+        <div id="service">
+            <div class="bg-color-sky-light" data-auto-height="true">
+                <div class="content-lg container">
+                    <div class="row margin-b-40">
+                        <div class="col-sm-6">
+                            <h2>About me</h2>
+                            <p>I am </p>
+                        </div>
+                    </div>
+                    
+                    <!--// end row -->
+                    <!-- Paste CV here -->
+                    <div class="row margin-b-40">
+                        <div class="col-sm-6">
+                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1080" height="1920" id="my-target-element">
+                                <param name="movie" value="swf/CV_Final01.swf"/>
+                                <!--[if !IE]>-->
+                                <object type="application/x-shockwave-flash" data="swf/CV_Final01.swf" width="1080" height="1920">
+                                <!--<![endif]-->
+                                    <a href="http://www.adobe.com/go/getflashplayer">
+                                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+                                    </a>
+                                <!--[if !IE]>-->
+                                </object>
+                                <!--<![endif]-->
+                            </object>
+                        </div>
+                    </div>
+                </div>
+                    <!-- End of CV paste -->
 
-<BR>
+                </div>
+            </div>
+        </div>
+        <!-- End About ME -->
+            
+        <!-- Contact -->
+        <div id="contact">
+            <!-- Contact List -->
+            <div class="section-seperator">
+                <div class="content-lg container">
+                    <div class="row">
+                        <!-- Contact List -->
+                        <div class="col-sm-4 sm-margin-b-50">
+                            <h3><a href="#">Ralitsa Ilcheva</a> <span class="text-uppercase margin-l-20">"Quad Chamfer"</span></h3>
+                            <!--
+                            <p>1113 Dianabad County</p>
+                            <p>26, "132" street, ap. 4</p>
+                            -->
+                            <p>Sofia</p>
+                            <ul class="list-unstyled contact-list">
+                                <li><i class="margin-r-10 color-base icon-call-out"></i> ++359 898 ...</li>
+                                <li><i class="margin-r-10 color-base icon-envelope"></i> rali@best3d.com</li>
+                            </ul>
+                        </div>
+                        <!-- End Contact List -->
+                    </div>
+                    <!--// end row -->
+                </div>
+            </div>
+            <!-- End Contact List -->
+            
+            <!-- Google Map -->
+            <div id="map" class="map height-300"></div>
+        </div>
+        <!-- End Contact -->
+        <!--========== END PAGE LAYOUT ==========-->
 
-<h5> FLASH ANIMATION </h5>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/wtk3z9s0tn2w5a6/001.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/rtbjipgzq3qwjqq/002.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/gd0493tv2cg9j3i/003.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/63qskh0u0g1ziqe/004.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/q5qramc7inpsf52/005.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/ha0xf6p8hvqr6jx/006.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/mase6d22invotax/007.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/ainlxu4c2t9liof/008.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/dk1eacwkublwysl/dust.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/ec851at2iknanhy/horseRun.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
-<object width="960" height="540">
-    <param name="movie" value="kur">
-    <embed src="https://dl.dropbox.com/s/2n8ecl2d4k1q2si/Monster.swf" width="960" height="540">
-    </embed>
-</object>
-<BR/>
+        <!--========== FOOTER ==========-->
+        <footer class="footer">
+            <!-- Links -->
+            <div class="section-seperator">
+                <div class="content-md container">
+                    <div class="row">
+                        <div class="col-sm-2 sm-margin-b-30">
+                            <!-- List -->
+                            <ul class="list-unstyled footer-list">
+                                <li class="footer-list-item"><a href="#">Home</a></li>
+                                <li class="footer-list-item"><a href="#">2D</a></li>
+                                <li class="footer-list-item"><a href="#">3D</a></li>
+                                <li class="footer-list-item"><a href="#">Contact</a></li>
+                            </ul>
+                            <!-- End List -->
+                        </div>
+                        <div class="col-sm-2 sm-margin-b-30">
+                            <!-- List -->
+                            <!-- End List -->
+                        </div>
+                        <div class="col-sm-3">
+                            <!-- List -->
+                            <!-- End List -->
+                        </div>
+                    </div>
+                    <!--// end row -->
+                </div>
+            </div>
+            <!-- End Links -->
 
+            <!-- Copyright -->
+            <div class="content container">
+                <div class="row">
+                    <div class="col-xs-6">
+                    <!--
+                        <img class="footer-logo" src="img/logo-dark.png" alt="Aitonepage Logo">
+                    -->
+                    </div>
+                    <div class="col-xs-6 text-right">
+                        <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/aitonepage/">Aitonepage</a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
+                    </div>
+                </div>
+                <!--// end row -->
+            </div>
+            <!-- End Copyright -->
+        </footer>
+        <!--========== END FOOTER ==========-->
 
+        <!-- Back To Top -->
+        <a href="javascript:void(0);" class="js-back-to-top back-to-top">Top</a>
 
+        <!-- JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+        <!-- CORE PLUGINS -->
+        <script src="vendor/jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
-<script>
+        <!-- PAGE LEVEL PLUGINS -->
+        <script src="vendor/jquery.easing.js" type="text/javascript"></script>
+        <script src="vendor/jquery.back-to-top.js" type="text/javascript"></script>
+        <script src="vendor/jquery.smooth-scroll.js" type="text/javascript"></script>
+        <script src="vendor/jquery.wow.min.js" type="text/javascript"></script>
+        <script src="vendor/swiper/js/swiper.jquery.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/jquery.masonry.pkgd.min.js" type="text/javascript"></script>
+        <script src="vendor/masonry/imagesloaded.pkgd.min.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBsXUGTFS09pLVdsYEE9YrO2y4IAncAO2U"></script>
 
-</script>
+        <!-- PAGE LEVEL SCRIPTS -->
+        <script src="js/layout.min.js" type="text/javascript"></script>
+        <script src="js/components/wow.min.js" type="text/javascript"></script>
+        <script src="js/components/swiper.min.js" type="text/javascript"></script>
+        <script src="js/components/masonry.min.js" type="text/javascript"></script>
+        <script src="js/components/google-map.min.js" type="text/javascript"></script>
 
-</body>
+        <script type="text/javascript" src="js/swfobject.js"></script>
+        <script type="text/javascript">
+            var el = document.getElementById("my-target-element");
+            swfobject.embedSWF("swf/CV_Final01.swf", el, 1920, 1080, 10); <!-- swf, id, width, height, min player version -->
+        </script>
+
+    </body>
+    <!-- END BODY -->
 </html>
