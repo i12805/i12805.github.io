@@ -286,6 +286,56 @@
       font-variant-numeric: tabular-nums;
     }
 
+    /* ── video loading state ──────────────────────────────────── */
+    .video-status {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(0,0,0,0.6);
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .video-status.loading { 
+      opacity: 1; 
+      pointer-events: auto;
+    }
+
+    .video-status.error {
+      opacity: 1;
+      pointer-events: auto;
+      background: rgba(200,100,100,0.3);
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid rgba(200,169,110,0.3);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .video-status-text {
+      font-size: 12px;
+      color: var(--text);
+      text-align: center;
+    }
+
+    .video-status-error {
+      color: #ff9999;
+    }
+
     /* ── footer ──────────────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
@@ -375,6 +425,11 @@
               <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 16,9 4,16"/></svg>
             </div>
           </div>
+
+          <div class="video-status" id="s1">
+            <div class="spinner"></div>
+            <div class="video-status-text">Loading video...</div>
+          </div>
         </div>
 
         <div class="card-footer">
@@ -416,6 +471,11 @@
               <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 16,9 4,16"/></svg>
             </div>
           </div>
+
+          <div class="video-status" id="s2">
+            <div class="spinner"></div>
+            <div class="video-status-text">Loading video...</div>
+          </div>
         </div>
 
         <div class="card-footer">
@@ -445,7 +505,8 @@
         <div class="video-wrapper">
           <video
             id="v3"
-            src="interval.webm"
+            src="https://zombium.org/rvideos/interval.webm"
+            type="video/webm"
             preload="metadata"
             crossorigin="anonymous"
             playsinline
@@ -456,6 +517,11 @@
             <div class="play-btn">
               <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 16,9 4,16"/></svg>
             </div>
+          </div>
+
+          <div class="video-status" id="s3">
+            <div class="spinner"></div>
+            <div class="video-status-text">Loading video...</div>
           </div>
         </div>
 
@@ -481,38 +547,78 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       [
-        { videoId: 'v1', overlayId: 'o1' },
-        { videoId: 'v2', overlayId: 'o2' },
-        { videoId: 'v3', overlayId: 'o3' },
-      ].forEach(({ videoId, overlayId }) => {
+        { videoId: 'v1', overlayId: 'o1', statusId: 's1' },
+        { videoId: 'v2', overlayId: 'o2', statusId: 's2' },
+        { videoId: 'v3', overlayId: 'o3', statusId: 's3' },
+      ].forEach(({ videoId, overlayId, statusId }) => {
         const video   = document.getElementById(videoId);
         const overlay = document.getElementById(overlayId);
+        const status  = document.getElementById(statusId);
 
-        // Clicking the overlay starts playback
-        overlay.addEventListener('click', () => {
-          video.play().then(() => {
-            overlay.classList.add('hidden');
-          }).catch(err => {
-            console.warn('Playback blocked:', err);
-          });
-        });
+        // Show loading state
+        const showLoading = () => {
+          status.classList.remove('error');
+          status.classList.add('loading');
+        };
 
-        // Hide overlay when playing (covers native controls play button too)
+        // Hide loading/error state
+        const hideStatus = () => {
+          status.classList.remove('loading', 'error');
+        };
+
+        // Show error state
+        const showError = (msg = 'Failed to load video') => {
+          status.classList.remove('loading');
+          status.classList.add('error');
+          status.querySelector('.video-status-text').textContent = msg;
+        };
+
+        // Show loading when playback starts
         video.addEventListener('play', () => {
+          hideStatus();
           overlay.classList.add('hidden');
         });
 
-        // Re-show overlay when paused mid-video
+        // Show loading on pause (unless ended)
         video.addEventListener('pause', () => {
-          if (!video.ended) {
+          if (!video.ended && video.duration) {
             overlay.classList.remove('hidden');
           }
         });
 
-        // Re-show overlay on end
+        // Re-show overlay when video ends
         video.addEventListener('ended', () => {
           overlay.classList.remove('hidden');
         });
+
+        // Handle buffering
+        video.addEventListener('seeking', showLoading);
+        video.addEventListener('seeked', hideStatus);
+        video.addEventListener('waiting', showLoading);
+        video.addEventListener('canplay', hideStatus);
+
+        // Handle errors
+        video.addEventListener('error', () => {
+          const errorCode = video.error?.code;
+          let errorMsg = 'Failed to load video';
+          if (errorCode === 2) errorMsg = 'Network error — check URL';
+          if (errorCode === 3) errorMsg = 'Video playback aborted';
+          if (errorCode === 4) errorMsg = 'Unsupported video format';
+          showError(errorMsg);
+          overlay.classList.add('hidden');
+        });
+
+        // Clicking the overlay starts playback
+        overlay.addEventListener('click', () => {
+          showLoading();
+          video.play().catch(err => {
+            showError('Playback blocked');
+            console.warn('Playback blocked:', err);
+          });
+        });
+
+        // Initial state
+        showLoading();
       });
     });
   </script>
