@@ -217,16 +217,18 @@
       display: block;
     }
 
-    /* custom play overlay */
+    /* custom play overlay — sits above video but BELOW the native controls bar */
     .play-overlay {
       position: absolute;
       inset: 0;
+      bottom: 40px; /* leave room for native controls bar */
       display: flex;
       align-items: center;
       justify-content: center;
       background: rgba(0,0,0,0.35);
       cursor: pointer;
       transition: opacity 0.3s;
+      z-index: 1;
     }
 
     .play-overlay.hidden { opacity: 0; pointer-events: none; }
@@ -359,13 +361,14 @@
           <video
             id="v1"
             src="https://zombium.org/rvideos/badtorro.mp4"
-            preload="none"
+            preload="metadata"
             crossorigin="anonymous"
             playsinline
             controls
+            style="background:#000;"
           ></video>
 
-          <div class="play-overlay" id="o1" onclick="playVideo('v1','o1')">
+          <div class="play-overlay" id="o1">
             <div class="play-btn">
               <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 16,9 4,16"/></svg>
             </div>
@@ -399,13 +402,14 @@
         <div class="video-wrapper">
           <video
             id="v2"
-            src="https://zombium.org/rvideos/salt-and-concrete.mp4"
-            preload="none"
+            src="salt-and-concrete.mp4"
+            preload="metadata"
             crossorigin="anonymous"
             playsinline
             controls
+            style="background:#000;"
           ></video>
-          <div class="play-overlay" id="o2" onclick="playVideo('v2','o2')">
+          <div class="play-overlay" id="o2">
             <div class="play-btn">
               <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 16,9 4,16"/></svg>
             </div>
@@ -439,13 +443,14 @@
         <div class="video-wrapper">
           <video
             id="v3"
-            src="https://zombium.org/rvideos/interval.webm"
-            preload="none"
+            src="interval.webm"
+            preload="metadata"
             crossorigin="anonymous"
             playsinline
             controls
+            style="background:#000;"
           ></video>
-          <div class="play-overlay" id="o3" onclick="playVideo('v3','o3')">
+          <div class="play-overlay" id="o3">
             <div class="play-btn">
               <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="4,2 16,9 4,16"/></svg>
             </div>
@@ -472,33 +477,42 @@
   </div><!-- /page -->
 
   <script>
-    /**
-     * playVideo(videoId, overlayId)
-     *
-     * Plays the video and hides the custom overlay.
-     * The native <video controls> bar takes over from there.
-     * No JS fetch / XHR is made — the browser handles the
-     * range-request streaming directly, which is what the
-     * Accept-Ranges: bytes header in .htaccess is there for.
-     */
-    function playVideo(videoId, overlayId) {
-      const video   = document.getElementById(videoId);
-      const overlay = document.getElementById(overlayId);
+    document.addEventListener('DOMContentLoaded', () => {
+      [
+        { videoId: 'v1', overlayId: 'o1' },
+        { videoId: 'v2', overlayId: 'o2' },
+        { videoId: 'v3', overlayId: 'o3' },
+      ].forEach(({ videoId, overlayId }) => {
+        const video   = document.getElementById(videoId);
+        const overlay = document.getElementById(overlayId);
 
-      video.play().then(() => {
-        overlay.classList.add('hidden');
-      }).catch((err) => {
-        // Autoplay was blocked — the native controls are still visible
-        console.warn('Playback blocked by browser policy:', err);
-      });
+        // Clicking the overlay starts playback
+        overlay.addEventListener('click', () => {
+          video.play().then(() => {
+            overlay.classList.add('hidden');
+          }).catch(err => {
+            console.warn('Playback blocked:', err);
+          });
+        });
 
-      // Re-show overlay if the user pauses
-      video.addEventListener('pause', () => {
-        if (video.currentTime > 0 && !video.ended) {
+        // Hide overlay when playing (covers native controls play button too)
+        video.addEventListener('play', () => {
+          overlay.classList.add('hidden');
+        });
+
+        // Re-show overlay when paused mid-video
+        video.addEventListener('pause', () => {
+          if (!video.ended) {
+            overlay.classList.remove('hidden');
+          }
+        });
+
+        // Re-show overlay on end
+        video.addEventListener('ended', () => {
           overlay.classList.remove('hidden');
-        }
-      }, { once: false });
-    }
+        });
+      });
+    });
   </script>
 
 </body>
