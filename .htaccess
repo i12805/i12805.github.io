@@ -1,0 +1,67 @@
+# ================================================
+# Rali Portfolio — Media Server .htaccess
+# /public_html/videos/.htaccess
+# ================================================
+
+# --- HTTPS only ---
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+## Begin - Rewrite rules to block out some common exploits.
+# If you experience problems on your site block out the operations listed below
+# This attempts to block the most common type of exploit `attempts` to Joomla!
+#
+# Block out any script trying to base64_encode data within the URL.
+# Block out any script that includes a <script> tag in URL.
+# Block out any script trying to set a PHP GLOBALS variable via URL.
+# Block out any script trying to modify a _REQUEST variable via URL.
+# Return 403 Forbidden header and show the content of the root homepage
+
+RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
+RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+RewriteRule .* - [F,L] 
+
+# --- No directory listing ---
+Options -Indexes
+
+# --- Hotlink protection ---
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://i12805\.github\.io [NC]
+RewriteCond %{HTTP_REFERER} !^https://zombium\.org/rvideos [NC]
+RewriteRule \.(mp4|webm|mov|html)$ - [F,L]
+
+# --- Allow only video and pics data ---
+<FilesMatch "(?i)\.(mp4|webm|jpg|jpeg|png|html)$">
+    Require all allowed
+</FilesMatch>
+<FilesMatch "(?!.*\.(mp4|webm|jpg|jpeg|png|html)$)">
+    Require all denied
+</FilesMatch>
+
+# --- That sets a 30-day cache. For HTML files you'd want a much shorter TTL or no-cache. ---
+<FilesMatch "(?i)\.(mp4|webm|mov)$">
+    Header set Cache-Control "public, max-age=2592000"
+</FilesMatch>
+
+# --- CORS: allow your GitHub Pages domain and media server ---
+<IfModule mod_headers.c>
+    SetEnvIf Origin "^https://(i12805\.github\.io|zombium\.org/rvideos)$" ALLOWED_ORIGIN=$0
+    Header set Access-Control-Allow-Origin "%{ALLOWED_ORIGIN}e" env=ALLOWED_ORIGIN
+    Header set Accept-Ranges "bytes"
+    Header append Vary "Origin"
+    # --- prevent MIME-type sniffing, clickjacking, and referer leakage. ---
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# --- Rate limiting (higher for smooth video playback) ---
+<IfModule mod_ratelimit.c>
+    <FilesMatch "(?i)\.(mp4|webm|mov)$">
+        SetOutputFilter RATE_LIMIT
+        SetEnv rate-limit 2048
+    </FilesMatch>
+</IfModule>
