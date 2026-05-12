@@ -214,9 +214,26 @@
     .video-wrapper video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
+
+    /* JS stamps data-ratio on .video-card; landscape cards span 2 columns */
+    .video-grid { align-items: start; } /* rows shrink to each card's actual height */
+    .video-card[data-ratio="landscape"] { grid-column: span 2; }
+    .video-card[data-ratio="portrait"] { grid-column: span 1; }
+    .video-card[data-ratio="square"] { grid-column: span 1; }
+    
+    @media (max-width: 900px) { 
+      .video-card[data-ratio="landscape"] { grid-column: span 2; } 
+    }
+    
+    @media (max-width: 600px) { 
+      .video-card[data-ratio="landscape"],
+      .video-card[data-ratio="portrait"],
+      .video-card[data-ratio="square"] { grid-column: span 1; }
+    }
+
 
     /* custom play overlay — sits above video but BELOW the native controls bar */
     .play-overlay {
@@ -756,7 +773,7 @@
         </div>
         <div class="video-wrapper">
           <video controls preload="metadata">
-            <source src="assets/videos/Explain.LyRiHB.mp4" type="video/mp4"/>
+            <source src="assets/videos/LyRiHB.mp4" type="video/mp4"/>
           </video>
           <div class="play-overlay">
             <div class="play-btn">
@@ -1134,7 +1151,7 @@
           <p class="card-desc">Walking cycle animation</p>
         </div>
         <div class="video-wrapper">
-          <video controls preload="metadata">
+          <video controls preload="metadata" loop>
             <source src="assets/videos/BallWalkRigAnimationHB.mp4" type="video/mp4"/>
           </video>
           <div class="play-overlay">
@@ -1320,7 +1337,7 @@
           <p class="card-desc">Stop-motion inspired animation</p>
         </div>
         <div class="video-wrapper">
-          <video controls preload="metadata">
+          <video controls preload="metadata" loop>
             <source src="assets/videos/LegoAnimation.mp4" type="video/mp4"/>
           </video>
           <div class="play-overlay">
@@ -1341,8 +1358,8 @@
       </article>
     </div><!-- /video-grid -->
     <footer>
-      <span>© 2024 Rali — All rights reserved</span>
-      <span>Hosted at <a href="https://zombium.org">zombium.org</a></span>
+      <span>© 2026 Rali — All rights reserved</span>
+      <span>Help from <a href="https://zombium.org">zombium.org</a></span>
     </footer>
 
   </div><!-- /page -->
@@ -1425,6 +1442,62 @@
         showLoading();
       });
     });
+
+    /* ── Video ratio fix ─────────────────────────────────────────
+   Reads each video's intrinsic dimensions once metadata loads,
+   sets the wrapper's aspect-ratio to match exactly, classifies
+   the card as landscape/portrait/square for the grid span,
+   then switches object-fit to fill (no crop, no bars).
+   ─────────────────────────────────────────────────────────── */
+(function () {
+  const LANDSCAPE = 1.2;   // w/h above this → landscape
+  const PORTRAIT  = 0.85;  // w/h below this → portrait
+
+  function classify(w, h) {
+    const r = w / h;
+    if (r > LANDSCAPE) return 'landscape';
+    if (r < PORTRAIT)  return 'portrait';
+    return 'square';
+  }
+
+  function applyRatio(video) {
+    const w = video.videoWidth;
+    const h = video.videoHeight;
+    if (!w || !h) return;
+
+    const wrapper = video.closest('.video-wrapper');
+    const card    = video.closest('.video-card');
+    if (!wrapper || !card) return;
+
+    // Resize the wrapper to the video's exact native ratio
+    wrapper.style.aspectRatio = `${w} / ${h}`;
+
+    // Now that container shape matches, fill is perfect — zero crop, zero bars
+    video.style.objectFit = 'fill';
+
+    // Tag the card so the CSS grid span rules kick in
+    card.dataset.ratio = classify(w, h);
+  }
+
+  function handleVideo(video) {
+    if (video.readyState >= 1) { // HAVE_METADATA already cached
+      applyRatio(video);
+    } else {
+      video.addEventListener('loadedmetadata', () => applyRatio(video), { once: true });
+    }
+  }
+
+  document.querySelectorAll('.video-wrapper video').forEach(handleVideo);
+
+  // Catch any videos injected later (none currently, but future-proof)
+  new MutationObserver(mutations => {
+    mutations.forEach(m => m.addedNodes.forEach(n => {
+      if (n.nodeType !== 1) return;
+      if (n.matches?.('.video-wrapper video')) handleVideo(n);
+      n.querySelectorAll?.('.video-wrapper video').forEach(handleVideo);
+    }));
+  }).observe(document.body, { childList: true, subtree: true });
+})();
   </script>
 
 </body>
